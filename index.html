@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Seven-Day Adventure | 七彩七日冒险</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin:0;font-family:"Trebuchet MS",sans-serif;color:#fff;overflow-x:hidden;
+background:linear-gradient(120deg,#0a0f3c,#1a237e,#0d1a5f);background-size:300% 300%;
+animation:gradientMove 12s ease infinite;}
+@keyframes gradientMove{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;
+background-image:radial-gradient(2px 2px at 20% 30%,#ffffffaa,transparent),
+radial-gradient(2px 2px at 70% 80%,#ffffffaa,transparent),
+radial-gradient(2px 2px at 50% 50%,#ffffffaa,transparent),
+radial-gradient(1.5px 1.5px at 10% 80%,#ffffffaa,transparent),
+radial-gradient(1.5px 1.5px at 90% 20%,#ffffffaa,transparent);
+background-size:300px 300px;animation:stars 6s linear infinite;z-index:-1;}
+@keyframes stars{from{transform:translateY(0);}to{transform:translateY(-20px);}}
+.overlay{animation:fadeIn 1.5s ease;padding:30px;min-height:100vh;backdrop-filter:blur(4px);}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+header{text-align:center;padding:20px;}
+h1{font-size:3rem;font-weight:bold;text-shadow:0 0 10px #ffe066;animation:titleGlow 3s ease-in-out infinite alternate;}
+@keyframes titleGlow{from{text-shadow:0 0 6px #ffe066;}to{text-shadow:0 0 18px #ffdf70;}}
+.lang-btn{background:rgba(255,255,255,0.2);padding:8px 16px;border:none;border-radius:12px;color:#fff;cursor:pointer;margin-top:10px;backdrop-filter:blur(6px);transition:0.3s;}
+.lang-btn:hover{background:rgba(255,255,255,0.35);}
+.card{background:rgba(255,255,255,0.15);border-radius:20px;padding:25px;margin:25px auto;max-width:900px;backdrop-filter:blur(6px);animation:floatUp 1.5s ease;}
+@keyframes floatUp{from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.section-title{font-size:1.8rem;text-align:center;margin-bottom:15px;}
+input{padding:12px;border-radius:10px;border:none;width:100%;margin-top:8px;}
+.name-display{font-size:1.4rem;text-align:center;margin-top:10px;font-weight:bold;opacity:0.9;}
+footer{text-align:center;font-size:0.9rem;margin-top:40px;opacity:0.8;}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<header>
+<h1 id="titleEN">Seven-Day Adventure</h1>
+<h1 id="titleCN" style="display:none;">七日探索冒险</h1>
+
+<button class="lang-btn" onclick="toggleLang()">English / 中文</button>
+
+<p id="nameDisplay" class="name-display">Welcome, Explorer</p>
+</header>
+
+<div class="card">
+<div class="section-title" id="enterNameEN">Enter Your Adventurer Name</div>
+<div class="section-title" id="enterNameCN" style="display:none;">输入你的探险者名字</div>
+
+<input type="text" id="nameInput" placeholder="Type your name..." oninput="updateName()">
+</div>
+
+<div class="card">
+<div class="section-title" id="introEN">Game Introduction</div>
+<div class="section-title" id="introCN" style="display:none;">游戏介绍</div>
+
+<p id="contentEN">
+Seven Day Adventure is an interactive STEM themed learning journey.
+Students explore imaginative planets, solve science based challenges, and follow a story that connects creativity with real world concepts.
+Each day introduces a new world inspired by physics, mathematics, engineering, and inquiry based thinking.
+</p>
+
+<p id="contentCN" style="display:none;">
+七日冒险是一个互动式的 STEM 学习旅程。
+学生将探索由想象力构建的星球，通过解决科学挑战来推动故事发展。
+每一天都会带来受物理、数学、工程和探究式学习启发的新世界，让知识与创造力并行。
+</p>
+</div>
+
+<div class="card">
+<div class="section-title" id="contactEN">Contact Information</div>
+<div class="section-title" id="contactCN" style="display:none;">联系方式</div>
+
+<ul id="listEN">
+<li>Email: contact@stemplanet-adventure.com</li>
+<li>Instagram: instagram.com/SevenDayAdventureOfficial</li>
+<li>LinkedIn: linkedin.com/in/yourname</li>
+<li>Website: https://yourwebsite.com</li>
+</ul>
+
+<ul id="listCN" style="display:none;">
+<li>电子邮箱: contact@stemplanet-adventure.com</li>
+<li>Instagram: instagram.com/SevenDayAdventureOfficial</li>
+<li>领英: linkedin.com/in/yourname</li>
+<li>官方网站: https://yourwebsite.com</li>
+</ul>
+</div>
+
+<footer>
+© 2025 Seven-Day Adventure Creative STEM Project
+</footer>
+</div>
+
+<script>
+function updateName(){
+const name=document.getElementById("nameInput").value.trim();
+const display=document.getElementById("nameDisplay");
+if(currentLang==="EN"){display.textContent=name?"Welcome, "+name:"Welcome, Explorer";}
+else{display.textContent=name?"欢迎你, "+name:"欢迎你, 探险者";}
+}
+var currentLang="EN";
+function toggleLang(){
+currentLang=currentLang==="EN"?"CN":"EN";
+const showEN=currentLang==="EN";
+document.getElementById("titleEN").style.display=showEN?"":"none";
+document.getElementById("titleCN").style.display=showEN?"none":"";
+document.getElementById("enterNameEN").style.display=showEN?"":"none";
+document.getElementById("enterNameCN").style.display=showEN?"none":"";
+document.getElementById("introEN").style.display=showEN?"":"none";
+document.getElementById("introCN").style.display=showEN?"none":"";
+document.getElementById("contentEN").style.display=showEN?"":"none";
+document.getElementById("contentCN").style.display=showEN?"none":"";
+document.getElementById("contactEN").style.display=showEN?"":"none";
+document.getElementById("contactCN").style.display=showEN?"none":"";
+document.getElementById("listEN").style.display=showEN?"":"none";
+document.getElementById("listCN").style.display=showEN?"none":"";
+updateName();
+}
+</script>
+
+</body>
+</html>
