@@ -1,107 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Seven-Day Adventure On The STEM Planet</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 body {
   margin:0;
-  overflow:hidden;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0a2a43, #0e4d5c, #0fa3b1);
-  background-size: 400% 400%;
-  animation: bgMove 14s ease infinite;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#0a2a43,#0e4d5c,#0fa3b1);
+  background-size:400% 400%;
+  animation:bg 12s infinite;
+  color:white;
 }
-@keyframes bgMove {
+@keyframes bg {
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
-
-/* soft yellow twinkling stars */
-.star {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(circle, #ffe98a 0%, rgba(255,255,255,0) 70%);
-  border-radius: 50%;
-  animation: twinkle 3s ease-in-out infinite;
-  opacity: 0.8;
-}
-@keyframes twinkle {
-  0%,100%{opacity:0.2;}
-  50%{opacity:1;}
-}
-
-.title {
+h1{
   text-align:center;
-  color:white;
-  margin-top:80px;
-  font-size: 2.5rem;
-  text-shadow:0 0 12px #8fffd6;
+  margin-top:60px;
+  font-size:2.4rem;
+  text-shadow:0 0 12px #6ef7c8;
 }
-
-/* animated fox */
-.fox {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  width: 150px;
-  animation: floatFox 4s ease-in-out infinite;
+.fox{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:110px;
+  animation:float 4s ease-in-out infinite;
 }
-@keyframes floatFox {
+@keyframes float {
   0%{transform:translateY(0);}
-  50%{transform:translateY(-14px);}
+  50%{transform:translateY(-12px);}
   100%{transform:translateY(0);}
-}
-
-/* fox blinking */
-@keyframes blink {
-  0%, 90%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.05); }
-}
-
-.eye {
-  transform-origin: center;
-  animation: blink 6s infinite;
-}
-
-.tail-glow {
-  filter: drop-shadow(0 0 6px #ffb36b);
 }
 </style>
 </head>
-
 <body>
+<h1>Seven-Day Adventure On The STEM Planet</h1>
 
-<h1 class="title">Seven-Day Adventure On The STEM Planet</h1>
-
-<!-- Animated Fox (SVG) -->
+<!-- simple placeholder fox -->
 <svg class="fox" viewBox="0 0 200 200">
-  <circle cx="100" cy="100" r="80" fill="#ff914d"/>
-  <circle class="eye" cx="70" cy="80" r="12" fill="white"/>
-  <circle class="eye" cx="130" cy="80" r="12" fill="white"/>
-  <circle cx="70" cy="80" r="6" fill="black"/>
-  <circle cx="130" cy="80" r="6" fill="black"/>
-  <path d="M60 130 Q100 160 140 130" stroke="black" stroke-width="6" fill="none"/>
-
-  <path class="tail-glow" d="M160 120 Q190 140 150 160" stroke="#ff914d" stroke-width="14" stroke-linecap="round" fill="none"/>
+<circle cx="100" cy="100" r="80" fill="#ff914d"/>
+<circle cx="70" cy="80" r="15" fill="white"/>
+<circle cx="130" cy="80" r="15" fill="white"/>
+<circle cx="70" cy="80" r="7" fill="black"/>
+<circle cx="130" cy="80" r="7" fill="black"/>
+<path d="M60 130 Q100 160 140 130" stroke="black" stroke-width="6" fill="none"/>
 </svg>
-
-<script>
-// Generate soft twinkling stars
-for (let i=0; i<40; i++){
-  let star = document.createElement('div');
-  star.className = 'star';
-  star.style.left = Math.random()*100 + 'vw';
-  star.style.top = Math.random()*100 + 'vh';
-  star.style.animationDuration = (3 + Math.random()*2) + 's';
-  document.body.appendChild(star);
-}
-</script>
 
 </body>
 </html>
